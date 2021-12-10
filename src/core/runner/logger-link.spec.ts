@@ -1,6 +1,6 @@
 import { LoggerLink } from './logger-link'
 import { mockDate, RealDate } from '../../../test/utils/mock-date'
-import { Command } from '../command/command'
+import { Command } from '../use-case/command'
 import { capture, instance, mock } from 'ts-mockito'
 import { Logger } from './logger'
 
@@ -13,11 +13,11 @@ describe('LoggerLink', () => {
     global.Date = RealDate
   })
 
-  it('should log a command', async () => {
+  it('should log a use-case', async () => {
     const { logger, loggerLink, command } = setup()
 
     await loggerLink.next({
-      command,
+      useCase: command,
       result: 42,
     })
 

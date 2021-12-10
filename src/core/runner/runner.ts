@@ -4,31 +4,31 @@ import { LoggerLink } from './logger-link'
 import { CacheLink } from './cache-link'
 import { Link } from './link'
 import { Context } from './context'
-import { CreateCarCommand } from '../command/create-car-command'
-import { Logger } from './logger'
+import { UseCase } from '../use-case/use-case'
 
-export class Chain {
-  private firstLink: Link = new EmptyLink()
+export class Runner {
+  private static link: Link = new EmptyLink()
 
-  constructor(private readonly logger: Logger) {}
-
-  build(): this {
+  static build() {
     const cacheLink: Link = new CacheLink()
     const executorLink: Link = new ExecutorLink()
-    const loggerLink: Link = new LoggerLink(this.logger)
+    const loggerLink: Link = new LoggerLink(console)
     const emptyLink: Link = new EmptyLink()
     cacheLink.setNext(executorLink)
     executorLink.setNext(loggerLink)
     loggerLink.setNext(emptyLink)
-    this.firstLink = cacheLink
-    return this
+    this.link = cacheLink
   }
 
-  async run(): Promise<string> {
-    const context: Context<CreateCarCommand> = {
-      command: new CreateCarCommand(),
+  static async run(
+    useCase: UseCase<unknown, unknown>,
+    param: unknown
+  ): Promise<unknown> {
+    const context: Context<UseCase<unknown, unknown>> = {
+      useCase,
+      param: param,
     }
-    await this.firstLink.next(context)
+    await this.link.next(context)
     return context.result
   }
 }

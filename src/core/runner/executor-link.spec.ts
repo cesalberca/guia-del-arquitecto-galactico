@@ -1,23 +1,23 @@
 import { ExecutorLink } from './executor-link'
-import { Command } from '../command/command'
+import { Command } from '../use-case/command'
 import { Context } from './context'
 import { anything, instance, mock, verify, when } from 'ts-mockito'
 
 describe('ExecutorLink', () => {
-  it('should execute a given command', async () => {
+  it('should execute a given use-case', async () => {
     const { executorLink, commandMock, command } = setup()
     when(commandMock.execute(anything())).thenResolve()
 
-    await executorLink.next({ command })
+    await executorLink.next({ useCase: command })
 
     verify(commandMock.execute(anything())).once()
   })
 
-  it('should execute a given command with parameters', async () => {
+  it('should execute a given use-case with parameters', async () => {
     const { executorLink, commandMock, command } = setup()
     when(commandMock.execute(anything())).thenResolve()
 
-    await executorLink.next({ command, options: 42 })
+    await executorLink.next({ useCase: command, param: 42 })
 
     verify(commandMock.execute(42)).once()
   })
@@ -25,7 +25,7 @@ describe('ExecutorLink', () => {
   it('should set the result', async () => {
     const { executorLink, command, commandMock } = setup()
     when(commandMock.execute(anything())).thenResolve(42)
-    const context: Context = { command }
+    const context: Context = { useCase: command }
 
     await executorLink.next(context)
 

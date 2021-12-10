@@ -6,7 +6,7 @@ export class ExecutorLink implements Link {
   private nextLink: Link = new EmptyLink()
 
   async next(context: Context) {
-    context.result = await context.command.execute(context.options)
+    context.result = await context.useCase.internalExecute(context.param)
     this.nextLink.next(context)
   }
 

@@ -1,8 +1,7 @@
 {
   "name": "guia-del-arquitecto-galactico",
   "version": "1.0.0",
-  "description": "",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "description": "El front se ha vuelto complejo. Muy complejo. Hemos pasado de usar JavaScript con jQuery a usar frameworks que nos ayudan con gestión del estado, componentes, nos abstraen de lidiar con el DOM e infinidad de cosas más. Pero... ¿Y cómo organizamos el código que no es del framework? ¿Debemos hacer separación por capas? ¿Debemos aplicar conceptos de arquitectura en el front? En esta charla hablaremos sobre conceptos de arquitectura de Software y debatiremos de qué forma se puede aplicar al frontend para que nuestras aplicaciones sean robustas y sólidas a la par que flexibles.",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -12,14 +11,22 @@
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
+    "@babel/plugin-proposal-decorators": "7.16.4",
     "@babel/preset-env": "7.16.4",
     "@babel/preset-typescript": "7.16.0",
+    "@parcel/babel-preset-env": "2.0.1",
     "@types/jest": "27.0.3",
+    "babel-plugin-transform-typescript-metadata": "0.3.2",
     "jest": "27.4.3",
     "parcel": "2.0.1",
     "prettier": "2.5.1",
     "ts-jest": "27.1.1",
     "ts-mockito": "2.6.1",
     "typescript": "4.5.2"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "dependencies": {
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.6.0"
   }
 }

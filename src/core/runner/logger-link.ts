@@ -11,7 +11,7 @@ export class LoggerLink implements Link {
   async next(context: Context) {
     this.logger.log(
       `${new Date().toISOString()} - ${
-        context.command.constructor.name
+        context.useCase.constructor.name
       } - ${this.printResult(context.result)}`
     )
     this.nextLink.next(context)

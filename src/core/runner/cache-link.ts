@@ -7,7 +7,7 @@ export class CacheLink implements Link {
   private readonly cache = new Map<string, unknown>()
 
   async next(context: Context) {
-    const key = context.command.constructor.name
+    const key = context.useCase.constructor.name
     if (this.cache.has(key)) {
       context.result = this.cache.get(key)
       this.setNext(new EmptyLink())
