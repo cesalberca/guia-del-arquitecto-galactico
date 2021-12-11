@@ -7,6 +7,6 @@ export class TodosPage {
 
   async render() {
     const todos = await this.getCompletedTodosQry.execute()
-    return `<section>${todos.map((x) => `<div>${x.title}</div>`)}<section>`
+    return `<ul class="todos">${todos.map((x) => `<li class="todo">${x.title}</li>`).join('')}<section>`
   }
 }

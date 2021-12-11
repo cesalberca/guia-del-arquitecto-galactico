@@ -8,6 +8,10 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  padding: 2rem;
+}
+
 h1 {
   font-weight: normal;
 }
