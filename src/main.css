@@ -43,3 +43,7 @@ button {
 button:hover {
   filter: brightness(130%);
 }
+
+.completed {
+  text-decoration: line-through;
+}

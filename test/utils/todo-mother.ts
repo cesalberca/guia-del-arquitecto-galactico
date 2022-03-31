@@ -7,7 +7,7 @@ export class TodoMother {
         completed: true,
         id: 1,
         userId: 1,
-        title: 'Learn architecture',
+        title: 'Aprender arquitectura',
       },
     ]
   }
@@ -18,13 +18,19 @@ export class TodoMother {
         completed: true,
         id: 1,
         userId: 1,
-        title: 'Learn architecture',
+        title: 'Aprender arquitectura',
       },
       {
         completed: false,
         id: 2,
         userId: 1,
-        title: 'Learn Web3',
+        title: 'Aprender Web3',
+      },
+      {
+        completed: false,
+        id: 3,
+        userId: 1,
+        title: 'Aplicar las 4 reglas del diseño simple',
       },
     ]
   }
