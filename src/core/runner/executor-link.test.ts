@@ -10,7 +10,7 @@ describe('ExecutorLink', () => {
 
     await executorLink.next({ useCase: command })
 
-    verify(commandMock.execute(anything())).once()
+    verify(commandMock.internalExecute(anything())).once()
   })
 
   it('should execute a given use-case with parameters', async () => {
@@ -19,12 +19,12 @@ describe('ExecutorLink', () => {
 
     await executorLink.next({ useCase: command, param: 42 })
 
-    verify(commandMock.execute(42)).once()
+    verify(commandMock.internalExecute(42)).once()
   })
 
   it('should set the result', async () => {
     const { executorLink, command, commandMock } = setup()
-    when(commandMock.execute(anything())).thenResolve(42)
+    when(commandMock.internalExecute(anything())).thenResolve(42)
     const context: Context = { useCase: command }
 
     await executorLink.next(context)

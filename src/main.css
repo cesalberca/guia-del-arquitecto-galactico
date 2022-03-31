@@ -5,7 +5,8 @@
 html,
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 18px;
   color: var(--foreground-color);
   background-color: var(--background-color);
 }
@@ -22,4 +23,23 @@ h1 {
   --background-color: #232323;
   --foreground-color: white;
   --primary-color: #ea53fe;
+  --on-primary-color: #white;
+
+  --s: 1rem;
+  --m: 2rem;
+  --l: 4rem;
+}
+
+button {
+  color: var(--on-primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  padding: var(--s) var(--m);
+  font: inherit;
+  transition: all ease-in-out 0.5s;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(130%);
 }
