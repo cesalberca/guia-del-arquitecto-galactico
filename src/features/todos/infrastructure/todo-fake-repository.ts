@@ -6,6 +6,6 @@ import { TodoMother } from '../../../../test/utils/todo-mother'
 @injectable()
 export class TodoFakeRepository implements TodoRepository {
   async findAll(): Promise<Todo[]> {
-    return TodoMother.completedTodos()
+    return TodoMother.completed()
   }
 }

@@ -1,15 +1,13 @@
 import { TodoRepository } from '../domain/todo-repository'
 import { Todo } from '../domain/todo'
 import { inject, injectable } from 'tsyringe'
-import { WINDOW } from '../../../core/di/injection-tokens'
+import { GLOBAL } from '../../../core/di/injection-tokens'
 
 @injectable()
 export class TodoHttpRepository implements TodoRepository {
-  constructor(@inject(WINDOW) private readonly window: Window) {}
+  constructor(@inject(GLOBAL) private readonly global: typeof globalThis) {}
 
   findAll(): Promise<Todo[]> {
-    return this.window
-      .fetch('https://jsonplaceholder.typicode.com/todos')
-      .then((x) => x.json())
+    return this.global.fetch('https://jsonplaceholder.typicode.com/todos').then(x => x.json())
   }
 }

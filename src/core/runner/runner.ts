@@ -20,10 +20,7 @@ export class Runner {
     this.link = cacheLink
   }
 
-  static async run(
-    useCase: UseCase<unknown, unknown>,
-    param: unknown
-  ): Promise<unknown> {
+  static async run(useCase: UseCase<unknown, unknown>, param: unknown): Promise<unknown> {
     const context: Context<UseCase<unknown, unknown>> = {
       useCase,
       param: param,

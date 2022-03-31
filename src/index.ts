@@ -16,12 +16,10 @@ async function render() {
   Runner.build()
   const todosPage = container.resolve(TodosPage)
 
-  document
-    .querySelector('#get-completed-todos')
-    .addEventListener('click', async () => {
-      const todosPageRendered = await todosPage.render()
-      document.querySelector('#todos').innerHTML = todosPageRendered
-    })
+  document.querySelector('#get-completed-todos').addEventListener('click', async () => {
+    const todosPageRendered = await todosPage.render()
+    document.querySelector('#todos').innerHTML = todosPageRendered
+  })
 }
 
 render()

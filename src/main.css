@@ -6,6 +6,8 @@ html,
 body {
   margin: 0;
   font-family: sans-serif;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
 }
 
 main {
@@ -16,5 +18,8 @@ h1 {
   font-weight: normal;
 }
 
-
-
+:root {
+  --background-color: #232323;
+  --foreground-color: white;
+  --primary-color: #ea53fe;
+}
