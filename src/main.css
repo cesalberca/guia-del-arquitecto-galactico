@@ -44,6 +44,10 @@ button:hover {
   filter: brightness(130%);
 }
 
+.todo {
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through;
 }
